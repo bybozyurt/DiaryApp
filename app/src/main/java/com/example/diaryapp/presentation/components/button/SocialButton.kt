@@ -1,6 +1,6 @@
 package com.example.diaryapp.presentation.components.button
 
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
@@ -17,33 +17,40 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.diaryapp.R
 import com.example.diaryapp.presentation.components.icon.AppIcon
+import com.example.diaryapp.presentation.components.progressBar.AppProgressBar
 import com.example.diaryapp.presentation.components.text.AppText
+import com.example.diaryapp.util.onButtonClicked
 
-@Preview()
 @Composable
 fun SocialButton(
     modifier: Modifier = Modifier,
-    onClick: () -> Unit = {},
+    isLoading: Boolean = false,
+    onButtonClicked: onButtonClicked,
 ) {
     Card(
         modifier = modifier,
-        onClick = onClick,
+        onClick = onButtonClicked,
         shape = RoundedCornerShape(8.dp)
     ) {
-        Row(
-            modifier = Modifier.padding(8.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            AppIcon(
-                modifier = Modifier.requiredSize(48.dp),
-                id = R.drawable.ic_google
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            AppText(
-                text = "Sign in with Google",
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Bold
-            )
+        if (!isLoading) {
+            Row(
+                modifier = modifier.padding(8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+            ) {
+                AppIcon(
+                    modifier = Modifier.requiredSize(48.dp),
+                    id = R.drawable.ic_google
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                AppText(
+                    text = "Sign in with Google",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+        } else {
+            AppProgressBar()
         }
     }
 }

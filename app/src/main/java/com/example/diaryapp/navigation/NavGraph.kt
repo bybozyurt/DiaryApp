@@ -7,7 +7,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.diaryapp.presentation.screens.AuthenticationScreen
+import com.example.diaryapp.presentation.google.rememberGoogleSignInState
+import com.example.diaryapp.presentation.screens.auth.AuthenticationScreen
 import com.example.diaryapp.util.Constants.ID_FIELD
 
 @Composable
@@ -28,7 +29,14 @@ fun NavGraphBuilder.homeRoute() {
 
 fun NavGraphBuilder.authRoute() {
     composable(route = Screens.Authentication.route) {
-        AuthenticationScreen()
+        val googleSignInState = rememberGoogleSignInState()
+        AuthenticationScreen(
+            state = googleSignInState,
+            isLoading = googleSignInState.opened,
+            onButtonClick = {
+                googleSignInState.open()
+            }
+        )
     }
 }
 
