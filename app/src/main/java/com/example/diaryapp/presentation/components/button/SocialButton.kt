@@ -12,14 +12,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.diaryapp.R
 import com.example.diaryapp.presentation.components.icon.AppIcon
 import com.example.diaryapp.presentation.components.progressBar.AppProgressBar
 import com.example.diaryapp.presentation.components.text.AppText
-import com.example.diaryapp.util.onButtonClicked
+import com.example.diaryapp.common.onButtonClicked
 
 @Composable
 fun SocialButton(

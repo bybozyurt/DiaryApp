@@ -1,6 +1,6 @@
 package com.example.diaryapp.navigation
 
-import com.example.diaryapp.util.Constants.ID_FIELD
+import com.example.diaryapp.common.Constants.ID_FIELD
 
 sealed class Screens(val route : String) {
     data object Home : Screens("home")

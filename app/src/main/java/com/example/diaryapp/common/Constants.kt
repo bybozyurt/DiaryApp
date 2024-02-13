@@ -1,4 +1,4 @@
-package com.example.diaryapp.util
+package com.example.diaryapp.common
 
 object Constants {
     const val appId = "mydiaryapp-sryqb"

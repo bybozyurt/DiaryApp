@@ -1,4 +1,4 @@
-package com.example.diaryapp.extension
+package com.example.diaryapp.common.extension
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha

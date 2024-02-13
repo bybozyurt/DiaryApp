@@ -20,7 +20,7 @@ import com.example.diaryapp.R
 import com.example.diaryapp.presentation.components.button.SocialButton
 import com.example.diaryapp.presentation.components.icon.AppIcon
 import com.example.diaryapp.presentation.components.text.AppText
-import com.example.diaryapp.util.onButtonClicked
+import com.example.diaryapp.common.onButtonClicked
 
 @Composable
 fun AuthenticationContent(

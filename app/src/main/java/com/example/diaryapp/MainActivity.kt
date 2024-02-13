@@ -8,7 +8,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.diaryapp.navigation.Screens
 import com.example.diaryapp.navigation.SetupNavGraph
 import com.example.diaryapp.ui.theme.DiaryAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
