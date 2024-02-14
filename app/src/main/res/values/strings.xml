@@ -2,4 +2,9 @@
     <string name="app_name">DiaryApp</string>
 
     <string name="auth_title">Please sign in with Google</string>
+    <string name="login_success">Login Successful</string>
+    <string name="login_fail">Login Failed</string>
+    <string name="dialog_dismissed">Dialog Dismissed</string>
+    <string name="logout_success">Good Bye</string>
+    <string name="logout_fail">Logout Failed</string>
 </resources>

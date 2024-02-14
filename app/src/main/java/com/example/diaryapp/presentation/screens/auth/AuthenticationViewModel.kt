@@ -1,6 +1,8 @@
 package com.example.diaryapp.presentation.screens.auth
 
 import androidx.lifecycle.ViewModel
+import com.example.diaryapp.R
+import com.example.diaryapp.common.UiText
 import com.example.diaryapp.common.extension.launchInIo
 import com.example.diaryapp.common.extension.onError
 import com.example.diaryapp.common.extension.onSuccess
@@ -20,43 +22,44 @@ class AuthenticationViewModel @Inject constructor(
     val uiState = _uiState.asStateFlow()
 
     fun loginWithGoogle(tokenId: String) {
-        setLoading(true)
+        showLoading()
         launchInIo {
-            loginWithGoogleUseCase.invoke(tokenId).onSuccess {
-                setMessage(
-                    isError = false,
-                    message = "Login Successful"
+            loginWithGoogleUseCase.invoke(tokenId).onSuccess { isSuccess ->
+                if (isSuccess == false) {
+                    setUiState(AuthUiState.getLoginFailState())
+                    return@onSuccess
+                }
+                setUiState(
+                    AuthUiState(
+                        isError = false,
+                        uiText = UiText.StringResource(R.string.login_success),
+                        isLoggedIn = true
+                    )
                 )
             }.onError {
-                setMessage(
-                    isError = true,
-                    message = "Login Failed"
-                )
+                setUiState(AuthUiState.getLoginFailState())
             }
         }
     }
 
-    fun setLoading(isLoading: Boolean) {
-        _uiState.update { state ->
-            state.copy(isLoading = isLoading)
-        }
-    }
-
-    fun setMessage(isError: Boolean, message: String) {
-        _uiState.update { state ->
-            state.copy(
-                isError = isError,
-                message = message
-            )
+    fun setUiState(authUiState: AuthUiState) {
+        _uiState.update {
+            authUiState
         }
     }
 
     fun consumeMessage() {
        _uiState.update { state ->
             state.copy(
-                message = "",
+                uiText = UiText.Default,
                 isLoading = false
             )
+        }
+    }
+
+    private fun showLoading() {
+        _uiState.update { state ->
+            state.copy(isLoading = true)
         }
     }
 }

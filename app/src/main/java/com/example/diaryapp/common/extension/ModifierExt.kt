@@ -1,10 +1,21 @@
 package com.example.diaryapp.common.extension
 
+import androidx.compose.foundation.clickable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
+import com.example.diaryapp.common.onClick
 
-fun Modifier.setVisibility(visible: Boolean) = if (visible) {
-    alpha(1f)
-} else {
-    alpha(0f)
+fun Modifier.addSafeOnClick(onClick: onClick?): Modifier {
+    return conditional(onClick != null) {
+        clickable(
+            onClick = { onClick?.invoke() }
+        )
+    }
+}
+
+fun Modifier.conditional(condition: Boolean, modifier: Modifier.() -> Modifier): Modifier {
+    return if (condition) {
+        then(modifier(Modifier))
+    } else {
+        this
+    }
 }

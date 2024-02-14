@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
+import com.example.diaryapp.common.extension.addSafeOnClick
 
 @Composable
 fun AppText(
@@ -13,10 +14,11 @@ fun AppText(
     text: String,
     color: Color = Color.Unspecified,
     fontSize: TextUnit = TextUnit.Unspecified,
-    fontWeight: FontWeight = FontWeight.Normal
+    fontWeight: FontWeight = FontWeight.Normal,
+    onClick: (() -> Unit)? = null
 ) {
     Text(
-        modifier = modifier,
+        modifier = modifier.addSafeOnClick(onClick),
         text = text,
         color = color,
         fontSize = fontSize,

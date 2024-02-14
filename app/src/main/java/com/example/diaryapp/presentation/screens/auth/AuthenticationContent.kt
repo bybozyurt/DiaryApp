@@ -20,13 +20,13 @@ import com.example.diaryapp.R
 import com.example.diaryapp.presentation.components.button.SocialButton
 import com.example.diaryapp.presentation.components.icon.AppIcon
 import com.example.diaryapp.presentation.components.text.AppText
-import com.example.diaryapp.common.onButtonClicked
+import com.example.diaryapp.common.onClick
 
 @Composable
 fun AuthenticationContent(
     paddingValues: PaddingValues,
     isLoading: Boolean = false,
-    onButtonClicked: onButtonClicked
+    onClick: onClick
 ) {
     Column(
         modifier = Modifier
@@ -42,7 +42,7 @@ fun AuthenticationContent(
                 .fillMaxWidth()
                 .requiredHeight(70.dp),
             isLoading = isLoading,
-            onButtonClicked = onButtonClicked
+            onClick = onClick
         )
     }
 }
@@ -55,7 +55,7 @@ fun FormView() {
     ) {
         AppIcon(
             modifier = Modifier,
-            id = R.drawable.logo_google
+            id = R.drawable.ic_google
         )
         Spacer(modifier = Modifier.height(16.dp))
         AppText(
