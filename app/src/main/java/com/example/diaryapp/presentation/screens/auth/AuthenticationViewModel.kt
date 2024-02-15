@@ -1,8 +1,6 @@
 package com.example.diaryapp.presentation.screens.auth
 
 import androidx.lifecycle.ViewModel
-import com.example.diaryapp.R
-import com.example.diaryapp.common.UiText
 import com.example.diaryapp.common.extension.launchInIo
 import com.example.diaryapp.common.extension.onError
 import com.example.diaryapp.common.extension.onSuccess
@@ -32,8 +30,8 @@ class AuthenticationViewModel @Inject constructor(
                 setUiState(
                     AuthUiState(
                         isError = false,
-                        uiText = UiText.StringResource(R.string.login_success),
-                        isLoggedIn = true
+                        isLoggedIn = true,
+                        isLoading = false
                     )
                 )
             }.onError {
@@ -45,15 +43,6 @@ class AuthenticationViewModel @Inject constructor(
     fun setUiState(authUiState: AuthUiState) {
         _uiState.update {
             authUiState
-        }
-    }
-
-    fun consumeMessage() {
-       _uiState.update { state ->
-            state.copy(
-                uiText = UiText.Default,
-                isLoading = false
-            )
         }
     }
 

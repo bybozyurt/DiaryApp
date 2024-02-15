@@ -5,5 +5,5 @@ typealias onTokenIdReceived = (String) -> Unit
 typealias onDialogDismissed = (String) -> Unit
 
 //Navigation
-typealias navigateToHome = () -> Unit
+typealias navigateToHome = (Boolean) -> Unit
 typealias navigateToAuth = () -> Unit

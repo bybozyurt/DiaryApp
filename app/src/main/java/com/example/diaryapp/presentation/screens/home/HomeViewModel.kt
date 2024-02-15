@@ -25,46 +25,8 @@ class HomeViewModel @Inject constructor(
         showLoading()
         launchInIo {
             logOutUseCase.invoke()
-                .onSuccess {
-                    updateSuccessUiState(UiText.StringResource(R.string.logout_success))
-                }
-                .onError {
-                    updateErrorUiState(UiText.StringResource(R.string.logout_fail))
-                }
-        }
-    }
-
-    fun consumeErrorMessage() {
-        _uiState.update { state ->
-            state.copy(
-                errorMessage = UiText.Default
-            )
-        }
-    }
-
-    fun consumeSuccessMessage() {
-        _uiState.update { state ->
-            state.copy(
-                successMessage = UiText.Default
-            )
-        }
-    }
-
-    private fun updateErrorUiState(uiText : UiText) {
-        _uiState.update { state ->
-            state.copy(
-                errorMessage = uiText,
-                isLoading = false
-            )
-        }
-    }
-
-    private fun updateSuccessUiState(uiText : UiText) {
-        _uiState.update { state ->
-            state.copy(
-                successMessage = uiText,
-                isLoading = false
-            )
+                .onSuccess { updateState(isLoggedOut = true) }
+                .onError { updateState(isLoggedOut = false) }
         }
     }
 
@@ -72,6 +34,15 @@ class HomeViewModel @Inject constructor(
         _uiState.update { state ->
             state.copy(
                 isLoading = true
+            )
+        }
+    }
+
+    private fun updateState(isLoggedOut: Boolean) {
+        _uiState.update { state ->
+            state.copy(
+                isLoading = false,
+                isLoggedOut = isLoggedOut
             )
         }
     }
