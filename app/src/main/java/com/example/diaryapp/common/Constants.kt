@@ -9,3 +9,9 @@ object NavigationArgs {
     const val ID_FIELD = "id"
     const val IS_INITIAL = "isInitial"
 }
+
+object ScreenNames {
+    const val Home = "Home"
+    const val Authentication = "auth"
+    const val Enroll = "enroll"
+}

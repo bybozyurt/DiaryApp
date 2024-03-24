@@ -7,3 +7,6 @@ typealias onDialogDismissed = (String) -> Unit
 //Navigation
 typealias navigateToHome = (Boolean) -> Unit
 typealias navigateToAuth = () -> Unit
+
+//Menu
+typealias onDismissedRequest = () -> Unit

@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
 import com.example.diaryapp.common.extension.addSafeOnClick
 
@@ -15,6 +16,9 @@ fun AppText(
     color: Color = Color.Unspecified,
     fontSize: TextUnit = TextUnit.Unspecified,
     fontWeight: FontWeight = FontWeight.Normal,
+    maxLines: Int = Int.MAX_VALUE,
+    overflow: TextOverflow = TextOverflow.Clip,
+    lineHeight: TextUnit = TextUnit.Unspecified,
     onClick: (() -> Unit)? = null
 ) {
     Text(
@@ -22,6 +26,9 @@ fun AppText(
         text = text,
         color = color,
         fontSize = fontSize,
-        fontWeight = fontWeight
+        fontWeight = fontWeight,
+        maxLines = maxLines,
+        overflow = overflow,
+        lineHeight = lineHeight
     )
 }

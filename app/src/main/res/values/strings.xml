@@ -7,4 +7,6 @@
     <string name="dialog_dismissed">Dialog Dismissed</string>
     <string name="logout_success">Good Bye</string>
     <string name="logout_fail">Logout Failed</string>
+    <string name="logout">Logout</string>
+    <string name="delete_diaries">Delete your all diaries</string>
 </resources>

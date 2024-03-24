@@ -1,6 +1,5 @@
 package com.example.diaryapp.presentation.components.icon
 
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -18,7 +17,7 @@ fun AppIconButton(
         modifier = modifier,
         onClick = onClick
     ) {
-        Icon(
+        AppIcon(
             imageVector = imageVector,
             contentDescription = contentDescription
         )
